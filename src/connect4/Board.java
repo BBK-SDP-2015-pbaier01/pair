@@ -2,6 +2,7 @@ package connect4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * An instance represents a grid of pieces from two opposing
@@ -82,10 +83,17 @@ public class Board {
      * Throw an IllegalArgumentException if move's column is full on this Board.
      */
     public void makeMove(Move move) {
-        // TODO
-        // Delete the following code once you've decided to start implementing
-        // throw new UnsupportedOperationException("You need to implement makeMove before running the game.");
+    	int col = move.getColumn();
+    	int row = NUM_ROWS-1;
+    // searching through the column for the first available space
+    	while(getPlayer(row,col) != null){
+    		if(row == 0) throw new IllegalArgumentException();
+    		row--;
+    	}
+    // place the player on the space
+    	board[row][col] = move.getPlayer();
     }
+
 
     /**
      * Return an array of all moves that can possibly be made by Player p on this
@@ -98,9 +106,16 @@ public class Board {
      * array of length 0.
      */
     public Move[] getPossibleMoves(Player p) {
-        // TODO
-        return null;
-    }
+    	if (hasConnectFour() != null) return new Move[0];
+		List<Move> allMoves = new ArrayList<>();
+
+		IntStream.range(0, NUM_COLS)
+			.filter(col -> getPlayer(0, col) == null)
+				.forEach(col -> allMoves.add(new Move(p,col)));
+
+		return allMoves.toArray(new Move[allMoves.size()]);
+	}
+
 
     /**
      * Return a representation of this board
