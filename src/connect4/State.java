@@ -3,6 +3,7 @@ package connect4;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.stream.Stream;
 
 /**
  * An instance represents the state of a game of Connect Four.
@@ -111,7 +112,11 @@ public class State implements Comparable<Object> {
      * initialize all descendants.
      */
     public void initializeChildren() {
-        // TODO
+    	Move[] posMoves = board.getPossibleMoves(player);
+		State[] states = Stream.of(posMoves)
+			.map(s -> new State(player.opponent(),new Board(board,s),s)).toArray(State[]::new);
+    	 	
+   		setChildren(states);
     }
 
     /**

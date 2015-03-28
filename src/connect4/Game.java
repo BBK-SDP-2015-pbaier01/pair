@@ -120,7 +120,7 @@ public class Game {
         /* ********* Put any testing methods that you write here.  *******
          * *** We will not look at this class anyway ***/
     }
-    
+    //fill up the given column up to the given row
     public static void fillColumn(Board b,Player p, int col, int row){
     	IntStream.range(0, row)
     		.forEach(i -> b.makeMove(new Move((i % 2 == 0 ? p : p.opponent()),col)));
