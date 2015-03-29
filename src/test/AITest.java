@@ -54,7 +54,18 @@ public class AITest {
 		AI.createGameTree(tS, 3);
 		AI.minimax(p1,tS);
 		tS.writeToFile();
-		Stream.of(tS.getChildren()).forEach(v -> System.out.println(v.getValue()));
+	}
+	
+	@Test
+	public void getMoveTest() {
+	// p1 a RED player has 2 option to prevent the YELLOW player to win
+	// for p1 column 5 (0 indexed) is the best move otherwise YELLOW will have connect4
+		assertEquals("Expecting 1 Move",1, p1.getMoves(tB).length);
+		assertEquals("Expecting the column 5", 5 , p1.getMoves(tB)[0].getColumn());
+	// for visual purposes	
+		System.out.println(tB.toString());
+		Stream.of(p1.getMoves(tB)).forEach(System.out::println);
+		
 	}
 
 }

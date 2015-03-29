@@ -31,10 +31,33 @@ public class AI implements Solver {
      * See Solver.getMoves for the specification.
      */
     @Override
-    public Move[] getMoves(Board b) {
-        // TODO
-        return null;
-    }
+	public Move[] getMoves(Board b) {
+		List<Move> prefMoves = new ArrayList<>();
+
+		if (b != null) {
+	// state with the given board, we are not interested in the lastmove
+			State state = new State(player, b, null);
+			createGameTree(state, depth);
+			minimax(state);
+	// collecting the preferred moves in prefMoves by highest value
+			for (State posMove : state.getChildren()) {
+				if (posMove.getValue() > state.getValue()) {
+					prefMoves.clear();
+					prefMoves.add(0, posMove.getLastMove());
+	// if values are equally high add it to the array
+				} else if (posMove.getValue() == state.getValue()) {
+					prefMoves.add(posMove.getLastMove());
+				}
+			}
+
+		} else {
+			throw new IllegalArgumentException();
+		}
+
+		return prefMoves.toArray(new Move[prefMoves.size()]);
+	}
+
+    
 
     /**
      * Generate the game tree with root s of depth d.
@@ -76,13 +99,13 @@ public class AI implements Solver {
 			s.setValue(evaluateBoard(s.getBoard()));
 			return;
 		}
-
+// evaluate the childrens value recursively and collect the values nodeValues
 		List<Integer> nodeValues = new ArrayList<>();
 		for (State state : children) {
 			minimax(state);
 			nodeValues.add(state.getValue());
 		}
-
+// setting the given state's value to max if this player is playing, min otherwise
 		s.setValue(s.getPlayer() == player ? Collections.max(nodeValues)
 				: Collections.min(nodeValues));
 
