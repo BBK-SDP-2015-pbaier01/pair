@@ -1,0 +1,112 @@
+RED to play
+Value: -2
+|Y|Y|R|R| | |Y|
+|R|R|Y|Y| | |R|
+|Y|Y|R|R|Y|Y|Y|
+|R|R|Y|Y|R|R|R|
+|Y|Y|R|R|Y|Y|Y|
+|R|R|Y|Y|R|R|R|
+
+Children at depth 1:
+----------------
+   YELLOW to play
+   Value: -20000
+   |Y|Y|R|R| | |Y|
+   |R|R|Y|Y|R| |R|
+   |Y|Y|R|R|Y|Y|Y|
+   |R|R|Y|Y|R|R|R|
+   |Y|Y|R|R|Y|Y|Y|
+   |R|R|Y|Y|R|R|R|
+
+   Children at depth 2:
+   ----------------
+      RED to play
+      Value: 4
+      |Y|Y|R|R|Y| |Y|
+      |R|R|Y|Y|R| |R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+
+      Children at depth 3:
+      ----------------
+         YELLOW to play
+         Value: 4
+         |Y|Y|R|R|Y| |Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+
+      RED to play
+      Value: -20000
+      |Y|Y|R|R| | |Y|
+      |R|R|Y|Y|R|Y|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+
+   YELLOW to play
+   Value: -2
+   |Y|Y|R|R| | |Y|
+   |R|R|Y|Y| |R|R|
+   |Y|Y|R|R|Y|Y|Y|
+   |R|R|Y|Y|R|R|R|
+   |Y|Y|R|R|Y|Y|Y|
+   |R|R|Y|Y|R|R|R|
+
+   Children at depth 2:
+   ----------------
+      RED to play
+      Value: -2
+      |Y|Y|R|R| | |Y|
+      |R|R|Y|Y|Y|R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+
+      Children at depth 3:
+      ----------------
+         YELLOW to play
+         Value: -2
+         |Y|Y|R|R|R| |Y|
+         |R|R|Y|Y|Y|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+
+         YELLOW to play
+         Value: -3
+         |Y|Y|R|R| |R|Y|
+         |R|R|Y|Y|Y|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+
+      RED to play
+      Value: 5
+      |Y|Y|R|R| |Y|Y|
+      |R|R|Y|Y| |R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+      |Y|Y|R|R|Y|Y|Y|
+      |R|R|Y|Y|R|R|R|
+
+      Children at depth 3:
+      ----------------
+         YELLOW to play
+         Value: 5
+         |Y|Y|R|R| |Y|Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+         |Y|Y|R|R|Y|Y|Y|
+         |R|R|Y|Y|R|R|R|
+
+

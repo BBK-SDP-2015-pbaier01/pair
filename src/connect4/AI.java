@@ -1,6 +1,9 @@
 package connect4;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * An instance represents a Solver that intelligently determines
@@ -44,12 +47,16 @@ public class AI implements Solver {
      * <p/>
      * Note: If s has a winner (four in a row), it should be a leaf.
      */
-    public static void createGameTree(State s, int d) {
-        // Note: This method must be recursive, recurse on d,
-        // which should get smaller with each recursive call
-
-        // TODO
-    }
+	public static void createGameTree(State s, int d) {
+		if (d == 0) {
+			return;
+		} else if (d < 0)
+			throw new IllegalArgumentException("Depth cannot be less than 0");
+		else {
+			s.initializeChildren();
+			Stream.of(s.getChildren()).forEach(c -> createGameTree(c, d - 1));
+		}
+	}
 
     /**
      * Call minimax in ai with state s.
@@ -63,9 +70,23 @@ public class AI implements Solver {
      * Use the Minimax algorithm to assign a numerical value to each State of the
      * tree rooted at s, indicating how desirable that java.State is to this player.
      */
-    public void minimax(State s) {
-        // TODO
-    }
+	public void minimax(State s) {
+		State[] children = s.getChildren();
+		if (children.length == 0) {
+			s.setValue(evaluateBoard(s.getBoard()));
+			return;
+		}
+
+		List<Integer> nodeValues = new ArrayList<>();
+		for (State state : children) {
+			minimax(state);
+			nodeValues.add(state.getValue());
+		}
+
+		s.setValue(s.getPlayer() == player ? Collections.max(nodeValues)
+				: Collections.min(nodeValues));
+
+	}
 
     /**
      * Evaluate the desirability of Board b for this player
