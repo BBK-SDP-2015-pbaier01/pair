@@ -1,6 +1,6 @@
 
 
-#Pair assingment of SDP#
+#Pair assingment SDP - ConnectFour#
 
 ###pbaier01 & dbullo01###
 
